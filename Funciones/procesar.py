@@ -1,5 +1,6 @@
 from levantar import levantar_pdf
 from extraerimg import TierniFun
+from lim_pdf import limpiar_texto
 import os
 
 def procesar_pdf(path_pdf, guardar):
@@ -16,6 +17,13 @@ def procesar_pdf(path_pdf, guardar):
             for pagina, contenido in texto.items():
                 f.write(f"---{pagina}---\n")
                 f.write(f"{contenido}\n\n")
+        
+        texto_limpio=limpiar_texto(output_path)
+        
+        with open (output_path, "w", encoding="utf-8") as f:
+            f.write(texto_limpio)
+        
         print(f"Texto guardado en {output_path}")
+        
     else:
-        print("Sin contenido")                  
+        print("Sin contenido")            

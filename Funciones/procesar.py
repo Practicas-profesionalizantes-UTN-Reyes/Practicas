@@ -3,7 +3,7 @@ Lo que hace el codigo es procesar el pdf lo que significa eliminar los simbolos 
  y tambien pasarlo aun archivo .txt para que sea mas sencillo utilizarlo
 cuando lo necesitemos.
 """
-
+from palabras_rep import main_busq_palabras
 from levantar import levantar_pdf
 from extraerimg import TierniFun
 from lim_pdf import limpiar_texto
@@ -11,7 +11,8 @@ import os
 
 
 
-def procesar_pdf(path_pdf, guardar):
+
+def procesar_pdf(path_pdf, guardar, palabras_claves):
     texto = levantar_pdf(path_pdf) #llamamos a la funcion levantar pdf que devuelve un string con el texto del mismo
     
     if texto is None or all(t.strip() == "" for t in texto.values()): #si el texto esta vacio muestra lo siguiente
@@ -32,6 +33,9 @@ def procesar_pdf(path_pdf, guardar):
             f.write(texto_limpio)#borramos el texto anterior y le copiamos el contenido formateado
         
         print(f"Texto guardado en {output_path}")
-        
+    
+        output_txt = os.path.join(guardar, f"{nombre_archivo_pdf}_palabrasclave.json")
+        main_busq_palabras(output_path, palabras_claves, output_txt)
+            
     else:
         print("Sin contenido")            

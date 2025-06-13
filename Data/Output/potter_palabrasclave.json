@@ -1,0 +1,16 @@
+{
+    "Universo": {
+        "total": 6,
+        "paginas": [
+            1,
+            2,
+            3
+        ]
+    },
+    "antiguo": {
+        "total": 1,
+        "paginas": [
+            1
+        ]
+    }
+}

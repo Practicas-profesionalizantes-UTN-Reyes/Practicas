@@ -1,29 +1,14 @@
-# def chunk_palabras_solapado(diccionario, tamaño_chunk, solape):
-#     # 1. Ordenar el diccionario por clave (número de página) y unir los textos
-#     texto_total = " ".join(diccionario[k] for k in sorted(diccionario.keys()))
-    
-#     # 2. Dividir el texto completo en una lista de palabras
-#     palabras = texto_total.split()
-    
-#     # 3. Crear los chunks solapados
-#     paso = tamaño_chunk - solape
-#     chunks = []
-#     for i in range(0, len(palabras) - tamaño_chunk + 1, paso):
-#         chunk = palabras[i:i + tamaño_chunk]
-#         texto_chunk = " ".join(chunk)
-#         chunks.append(texto_chunk)
-#     for i, ch in enumerate(chunks, 1):
-#         print(f"\n🔹 Chunk {i}:\n{ch}")
 
-#     return chunks
 
 def chunk_palabras_solapado(texto, largo, solapamiento):
-    chunks = []
+    palabras= texto.split()#sss #divir en palabras
+    chunks = [] #hacemos una lista
     inicio = 0
-    while inicio < len(texto):
-        fin = inicio + largo
-        chunk = texto[inicio:fin].strip()
-        if len(chunk) > 50:  # evitar basura corta
-            chunks.append(chunk)
-        inicio += largo - solapamiento
+    while inicio < len(texto): #mientras que inicio se menor a la cantidad de palabras
+        fin = inicio + largo #donde finaliza el texto
+        chunk_palabras = palabras[inicio:fin]#["hola", "como" copiamos las palabras
+        chunk = " ".join(chunk_palabras).strip()#las guardamos en chunk
+        if len(chunk) > 20:  # evitar basura corta
+            chunks.append(chunk) #agregamos el chunck a la lista
+        inicio += largo - solapamiento #sumamos a inicio el largo del chunk - las palabrasa extras
     return chunks

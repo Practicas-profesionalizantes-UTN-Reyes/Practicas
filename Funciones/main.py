@@ -6,6 +6,7 @@ from extraer_chunk import devolver_archivo
 from procesar import procesar_pdf
 from chuncks import chunk_palabras_solapado
 
+#esto es una prueba en arch
 #palabras = ["Universo", "antiguo"]
 
 #ruta_pdf = "/home/nicotito/Documents/Practicas-2/Data/Input/potter.pdf"

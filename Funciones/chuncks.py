@@ -1,6 +1,9 @@
 
 
-def chunk_palabras_solapado(texto, largo, solapamiento):
+def chunk_palabras_solapado(texto_txt, largo, solapamiento):
+    with open (texto_txt,"r", encoding="utf_8") as f:
+        texto=f.read()
+    
     palabras= texto.split()#sss #divir en palabras
     chunks = [] #hacemos una lista
     inicio = 0
